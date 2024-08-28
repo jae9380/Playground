@@ -49,4 +49,21 @@ hi' UNION SELECTT userid, user_name, password, null, nlull, cookie, null FROM us
 
 해당 공격에는 여러가지 방법이 있다. 대표적으로 오류를 참고하여 참과 거짓을 구분하는 `Error based Blind SQL Injection`과 쿼리 실행에 소요되는 시간 차를 기준으로 구분하는 `Time based Blind SQL Injection` 그리고 서버의 응답 본문을 기준으로 구분하는 `Content based Blind SQL Injection` 등의 방법이 있다.    
 
+### 실습 문제
+
+5번 항목의 문제는 아래와 같이 Login과 Register기능을 활용하여 Tom의 계정으로 로그인을 하면 된다.   
+
+![](https://i.postimg.cc/YCmL16JB/Q5.png)    
+
+일단 먼저 로그인 기능에서 ID로 공격을 시도를 해보겠다.    
+
+임의의 값 과 싱글쿼터를 추가하여 값을 입력하여 성공을 한다면, 해당 로그인 서비스의 쿼리문에 싱글쿼터가 홀수가 되어 정상적인 쿼리가 실행되지 않을 것이다. 그래서 Username 부분에`Hi'`를 입력을 하고 시도를 해보자.   
+
+안타깝게도 로그인을 실패했다고 출력해준다.   
+
+에러를 대비하여 미리 핸들링을 했을 수 있으니 다시한번 공격을 해보자.
+
+이번에는 `Hi' or 1=1--`으로 공격해도 로그인에 실패했다고 알려준다.   
+
+이를 바탕으로 로그인 부분에는 `SQL Injection` 취약점이 존재하지 않는다.
 
