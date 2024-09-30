@@ -1,5 +1,7 @@
 # Web Socket과 STOMP
 
+![](https://i.postimg.cc/Y945LqYj/cover.jpg)
+
 어플리케이션 구현 기능 중 1:1 채팅 기능을 구현이 있었다. 그래서 사용한 `WebSocket / STOMP` 이 두가지 기능에 대해서 알아볼 생각이다.
 
 ---
